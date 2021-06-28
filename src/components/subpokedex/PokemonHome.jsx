@@ -10,7 +10,7 @@ const Info = styled.div`
 const PokemonHome = () => {
     return (
         <Info className="rounded">
-            
+            <h1>Hola Mundo</h1>
         </Info>
     )
 }
