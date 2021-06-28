@@ -8,7 +8,7 @@ const Container = styled.div`
     background: linear-gradient(0deg, rgba(58,104,180,1) 15%, rgba(29,253,230,1) 100%, rgba(69,246,252,1) 100%);
     max-width: 80%;
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 2%;
     border-radius: 14px;
     padding: 13px;
 `
