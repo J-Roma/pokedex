@@ -27,7 +27,6 @@ const Pekedex = () => {
                 return await getPokemonDetails(el.name)
             })
             const results = await Promise.all(promise)
-            console.log(results);
 
             setpokemonDetailList(results)
         } catch (error) {

@@ -8,7 +8,7 @@ import {
 import Pokedex from '../containers/Pokedex';
 import PokedexDetails from '../containers/PokedexDetails';
 
-const routes = () => {
+const Routes = () => {
     return (
         <Router>
             <Switch>
@@ -20,4 +20,4 @@ const routes = () => {
     )
 }
 
-export default routes
+export default Routes

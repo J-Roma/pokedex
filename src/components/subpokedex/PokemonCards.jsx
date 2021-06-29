@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 // import { useState } from 'react'
 // import { getPokemon, getPokemonDetails } from '../../helpers/getPokemonDetails'
@@ -11,38 +12,14 @@ const Cards = styled.div`
 `
 
 const PokemonCards = (props) => {
-    console.log(props.pokemon);
-    // const [pokemonDetailList, setpokemonDetailList] = useState('')
-    // const [next, setnext] = useState('')
-
-    // const fetchPokemons = async () => {
-    //     try {
-    //         const data = await getPokemon()
-    //         setnext(data.next)
-    //         const promise = data.results.map(async (el) => {
-    //             return await getPokemonDetails(el.name)
-    //         })
-    //         const results = await Promise.all(promise)
-    //         console.log(results);
-
-    //         setpokemonDetailList(results)
-    //     } catch (error) {
-
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     fetchPokemons()
-    // }, [])
-
-
     return (
         <>
 
             {
                 !props.pokemon ? <h1>Cargando...</h1> :
                     props.pokemon.map((pokemon, index) => (
-                        <Cards key={index} className="rounded" type="button">
+                        <Link key={index} to={`/pokemon/${pokemon.id}`}>
+                        <Cards  className="rounded" type="button">
                             <div className="row align-items-center">
                                 <div className="col-4">
                                     <img className="img-fluid" src={`${pokemon.sprites.front_default}`} alt="pokemonSprite" />
@@ -60,6 +37,7 @@ const PokemonCards = (props) => {
                                 </div>
                             </div>
                         </Cards>
+                        </Link>
                     ))
             }
 
