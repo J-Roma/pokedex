@@ -1,4 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Scrollbox = styled.div`
+    border: none;
+    padding: 5px;
+    max-width: 100%;
+    height: 236px;
+    overflow: auto;
+`
 
 const PokemonData = (props) => {
 
@@ -12,9 +21,6 @@ const PokemonData = (props) => {
                 </li>
                 <li className="nav-item" role="presentation">
                     <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Moves</button>
-                </li>
-                <li className="nav-item" role="presentation">
-                    <button className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
                 </li>
             </ul>
             <div className="tab-content" id="pills-tabContent">
@@ -36,16 +42,27 @@ const PokemonData = (props) => {
                     }
 
                 </div>
-                <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    {
-                        props.pokemonTarget.moves.map((el, index) => (
-                            <p>{el.move.name}</p>
-                        ))
-                    }
-                </div>
-                <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <Scrollbox className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Moves</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                </div>
+                            {
+                                props.pokemonTarget.moves.map((el, index) => (
+                                    <tr key={index}>
+                                        <th scope="row">{index + 1}</th>
+                                        <td>{el.move.name}</td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                </Scrollbox>
             </div>
         </div>
     )

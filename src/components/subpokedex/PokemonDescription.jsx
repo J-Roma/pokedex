@@ -18,6 +18,7 @@ const Overlay = styled.div`
     `}
      ${props => props.types && `
         position: absolute;
+        width: 200px;
         top: 0;
         right: 15px;
         background: white;
@@ -53,19 +54,20 @@ const PokemonDescription = (props) => {
                                 <Overlay className="rounded" topics>
                                     <h5 className="text-start bg-info bg-gradient py-1 px-2">Height:</h5>
                                     <p>{pokemonTarget.height} m</p>
-                                    <h5 className="text-start bg-info bg-gradient py-1 px-2">Weight</h5>
+                                    <h5 className="text-start bg-info bg-gradient py-1 px-2">Weight:</h5>
                                     <p>{pokemonTarget.weight} kg</p>
                                 </Overlay>
-                                <Overlay types>
+                                <Overlay className="rounded" types>
+                                <h5 className="text-start bg-info bg-gradient py-1 px-2">Type:</h5>
                                     {pokemonTarget.types.map( el => (
-                                        <h1>{el.type.name}</h1>
+                                        <p className="py-2">{el.type.name}</p>
                                     ))}
                                 </Overlay>
                             </Overlay>
 
                         </div>
                         <div className="col-11 rounded bg-white">
-                            <PokemonData className="p-2" pokemonTarget={pokemonTarget} />
+                            <PokemonData pokemonTarget={pokemonTarget} />
                         </div>
                     </div>
                 )
